@@ -1,0 +1,74 @@
+<!-- Vignesh: Phase 1 (UI) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFile — View Bookings</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cine<span>File</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="addBooking.html">Book Ticket</a>
+        <a href="viewBookings.html" class="active">View Bookings</a>
+        <a href="searchBooking.html">Search Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2>All Bookings</h2>
+    </div>
+
+    <!-- Custom Styled Table (Static Phase 1 Showcase) -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Movie</th>
+            <th>Seat</th>
+            <th>Show</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTableBody">
+          <!-- Static Mock Data for UI Demonstration -->
+          <tr>
+            <td style="font-weight: bold; color: #38bdf8;">101</td>
+            <td>Harmeet</td>
+            <td>Avengers</td>
+            <td><span class="table-badge">A5</span></td>
+            <td>6 PM</td>
+            <td style="font-weight: bold;">₹350.00</td>
+          </tr>
+          <tr>
+            <td style="font-weight: bold; color: #38bdf8;">102</td>
+            <td>Aditya</td>
+            <td>Interstellar</td>
+            <td><span class="table-badge">B12</span></td>
+            <td>3 PM</td>
+            <td style="font-weight: bold;">₹400.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 CineFile. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!-- Aditya: Phase 1 (UI) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFile — Book Ticket</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cine<span>File</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="addBooking.html" class="active">Book Ticket</a>
+        <a href="viewBookings.html">View Bookings</a>
+        <a href="searchBooking.html">Search Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Book Reservation Ticket</h2>
+    
+    <!-- Booking Form (Static Layout) -->
+    <form id="bookingForm" onsubmit="return false;">
+      
+      <!-- Customer Name -->
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" placeholder="Enter your full name" required />
+      </div>
+
+      <!-- Movie Selection -->
+      <div class="form-group">
+        <label for="movieName">Select Movie</label>
+        <select id="movieName" required>
+          <option value="">-- Choose a Featured Movie --</option>
+          <option value="Interstellar">Interstellar</option>
+          <option value="Dune: Part Two">Dune: Part Two</option>
+          <option value="Gladiator II">Gladiator II</option>
+        </select>
+      </div>
+
+      <!-- Show Time Selection -->
+      <div class="form-group">
+        <label for="showTime">Select Show Time</label>
+        <select id="showTime" required>
+          <option value="">-- Choose Showtime --</option>
+          <option value="1:30 PM">1:30 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:45 PM">4:45 PM</option>
+          <option value="5:30 PM">5:30 PM</option>
+          <option value="6:30 PM">6:30 PM</option>
+          <option value="8:00 PM">8:00 PM</option>
+          <option value="8:45 PM">8:45 PM</option>
+          <option value="9:00 PM">9:00 PM</option>
+        </select>
+      </div>
+
+      <!-- Seat Number -->
+      <div class="form-group">
+        <label for="seatNo">Seat Number</label>
+        <input type="text" id="seatNo" placeholder="e.g. A5, B12" required />
+      </div>
+
+      <!-- Ticket Price -->
+      <div class="form-group">
+        <label for="ticketPrice">Ticket Price (₹)</label>
+        <input type="number" id="ticketPrice" placeholder="Enter positive price value" min="0" required />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Book Ticket</button>
+      
+    </form>
+
+    <!-- Empty Message Display Area -->
+    <div id="responseMessage" class="alert alert-success" style="display: none; max-width: 500px; margin: 1.5rem auto;"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 CineFile. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

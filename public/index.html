@@ -1,0 +1,103 @@
+<!-- Shared: index.html - Home page and layouts -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFile — Curated Ticket Booking</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cine<span>File</span></a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="addBooking.html">Book Ticket</a>
+        <a href="viewBookings.html">View Bookings</a>
+        <a href="searchBooking.html">Search Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="container">
+    
+    <!-- Hero Banner -->
+    <section class="hero">
+      <h1>Curated Cinema.<br/>Seamless Booking.</h1>
+      <p>Reserve tickets for the finest cinematic experiences. Select your showtimes, customize seat assignments, and track active bookings effortlessly.</p>
+      <div>
+        <a href="addBooking.html" class="btn btn-primary">Book A Ticket</a>
+        <a href="viewBookings.html" class="btn btn-outline">Active Bookings</a>
+      </div>
+    </section>
+
+    <!-- Featured Movies Showcase -->
+    <h2 class="movie-section-title">Featured Movies</h2>
+    <section class="movie-showcase-grid">
+      
+      <!-- Card 1 -->
+      <div class="movie-showcase-card">
+        <img src="images/interstellar.png" alt="Interstellar" />
+        <span class="movie-tag-badge">Sci-Fi / Adventure</span>
+        <h3>Interstellar</h3>
+        <p>Showtimes: 3:00 PM | 6:30 PM | 9:00 PM</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="movie-showcase-card">
+        <img src="images/dune.png" alt="Dune: Part Two" />
+        <span class="movie-tag-badge">Epic / Fantasy</span>
+        <h3>Dune: Part Two</h3>
+        <p>Showtimes: 2:00 PM | 5:30 PM | 8:45 PM</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="movie-showcase-card">
+        <img src="images/gladiator.png" alt="Gladiator II" />
+        <span class="movie-tag-badge">Action / Drama</span>
+        <h3>Gladiator II</h3>
+        <p>Showtimes: 1:30 PM | 4:45 PM | 8:00 PM</p>
+      </div>
+
+    </section>
+
+    <!-- Services Grid -->
+    <h2 class="movie-section-title" style="margin-top: 4rem;">Quick Portal Services</h2>
+    <section class="grid">
+      
+      <!-- Card 1 -->
+      <div class="card">
+        <h3>Book Ticket</h3>
+        <p>Choose a movie, assign your seat, set a positive ticket price, and instantly register a new ticket reservation.</p>
+        <a href="addBooking.html" class="card-link">Proceed to booking &rarr;</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h3>View Bookings</h3>
+        <p>Examine the full list of all recorded seats, showtimes, customer details, and price registers in one table.</p>
+        <a href="viewBookings.html" class="card-link">View reservations &rarr;</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h3>Search Booking</h3>
+        <p>Quickly locate receipt and customer booking records by supplying a unique booking reservation ID.</p>
+        <a href="searchBooking.html" class="card-link">Search receipt &rarr;</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer>
+    <p>&copy; 2026 CineFile. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
