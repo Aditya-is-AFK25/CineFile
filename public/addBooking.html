@@ -26,8 +26,8 @@
   <main class="container">
     <h2 style="text-align: center; margin-bottom: 2rem;">Book Reservation Ticket</h2>
     
-    <!-- Booking Form (Static Layout) -->
-    <form id="bookingForm" onsubmit="return false;">
+    <!-- Booking Form -->
+    <form id="bookingForm">
       
       <!-- Customer Name -->
       <div class="form-group">
@@ -35,32 +35,16 @@
         <input type="text" id="customerName" placeholder="Enter your full name" required />
       </div>
 
-      <!-- Movie Selection -->
+      <!-- Movie Name -->
       <div class="form-group">
-        <label for="movieName">Select Movie</label>
-        <select id="movieName" required>
-          <option value="">-- Choose a Featured Movie --</option>
-          <option value="Interstellar">Interstellar</option>
-          <option value="Dune: Part Two">Dune: Part Two</option>
-          <option value="Gladiator II">Gladiator II</option>
-        </select>
+        <label for="movieName">Movie Name</label>
+        <input type="text" id="movieName" placeholder="e.g. Avengers" required />
       </div>
 
-      <!-- Show Time Selection -->
+      <!-- Show Time -->
       <div class="form-group">
-        <label for="showTime">Select Show Time</label>
-        <select id="showTime" required>
-          <option value="">-- Choose Showtime --</option>
-          <option value="1:30 PM">1:30 PM</option>
-          <option value="2:00 PM">2:00 PM</option>
-          <option value="3:00 PM">3:00 PM</option>
-          <option value="4:45 PM">4:45 PM</option>
-          <option value="5:30 PM">5:30 PM</option>
-          <option value="6:30 PM">6:30 PM</option>
-          <option value="8:00 PM">8:00 PM</option>
-          <option value="8:45 PM">8:45 PM</option>
-          <option value="9:00 PM">9:00 PM</option>
-        </select>
+        <label for="showTime">Show Time</label>
+        <input type="text" id="showTime" placeholder="e.g. 6 PM" required />
       </div>
 
       <!-- Seat Number -->
@@ -89,6 +73,55 @@
   <footer>
     <p>&copy; 2026 CineFile. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Done by Aditya: Fetch script to process ticket form inputs and submit them to the server API.
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const responseDiv = document.getElementById("responseMessage");
+      responseDiv.style.display = "none";
+      responseDiv.className = "alert";
+
+      const customerName = document.getElementById("customerName").value.trim();
+      const movieName = document.getElementById("movieName").value;
+      const showTime = document.getElementById("showTime").value;
+      const seatNo = document.getElementById("seatNo").value.trim();
+      const ticketPrice = document.getElementById("ticketPrice").value;
+
+      fetch("/addBooking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          customerName: customerName,
+          movieName: movieName,
+          showTime: showTime,
+          seatNo: seatNo,
+          ticketPrice: ticketPrice
+        })
+      })
+      .then(res => {
+        return res.json().then(data => {
+          responseDiv.style.display = "block";
+          if (res.ok) {
+            responseDiv.className = "alert alert-success";
+            responseDiv.innerText = "Ticket booked successfully! Booking ID: " + data.bookingId;
+            document.getElementById("bookingForm").reset();
+          } else {
+            responseDiv.className = "alert alert-danger";
+            responseDiv.innerText = "Error: " + data.message;
+          }
+        });
+      })
+      .catch(err => {
+        responseDiv.style.display = "block";
+        responseDiv.className = "alert alert-danger";
+        responseDiv.innerText = "Could not connect to the backend server.";
+      });
+    });
+  </script>
 
 </body>
 </html>

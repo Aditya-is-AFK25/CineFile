@@ -42,23 +42,7 @@
           </tr>
         </thead>
         <tbody id="bookingsTableBody">
-          <!-- Static Mock Data for UI Demonstration -->
-          <tr>
-            <td style="font-weight: bold; color: #38bdf8;">101</td>
-            <td>Harmeet</td>
-            <td>Avengers</td>
-            <td><span class="table-badge">A5</span></td>
-            <td>6 PM</td>
-            <td style="font-weight: bold;">₹350.00</td>
-          </tr>
-          <tr>
-            <td style="font-weight: bold; color: #38bdf8;">102</td>
-            <td>Aditya</td>
-            <td>Interstellar</td>
-            <td><span class="table-badge">B12</span></td>
-            <td>3 PM</td>
-            <td style="font-weight: bold;">₹400.00</td>
-          </tr>
+          <!-- Bookings list will be populated dynamically -->
         </tbody>
       </table>
     </div>
@@ -69,6 +53,38 @@
   <footer>
     <p>&copy; 2026 CineFile. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Done by Vignesh: Fetch script to pull all booking records and dynamically populate the table.
+    fetch("/bookings")
+      .then(res => res.json())
+      .then(bookings => {
+        const tbody = document.getElementById("bookingsTableBody");
+        tbody.innerHTML = "";
+
+        if (bookings.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #94a3b8;">No bookings found.</td></tr>';
+          return;
+        }
+
+        for (let i = 0; i < bookings.length; i++) {
+          const booking = bookings[i];
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td style="font-weight: bold; color: #38bdf8;">${booking.bookingId}</td>
+            <td>${booking.customerName}</td>
+            <td>${booking.movieName}</td>
+            <td><span class="table-badge">${booking.seatNo}</span></td>
+            <td>${booking.showTime}</td>
+            <td style="font-weight: bold;">₹${booking.ticketPrice}</td>
+          `;
+          tbody.appendChild(row);
+        }
+      })
+      .catch(err => {
+        console.error("Failed to load movie bookings:", err);
+      });
+  </script>
 
 </body>
 </html>

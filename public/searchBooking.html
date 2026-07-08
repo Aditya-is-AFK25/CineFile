@@ -39,43 +39,8 @@
         </div>
       </div>
 
-      <!-- Search Results Empty Container -->
-      <div id="searchResult">
-        <!-- Results or alert messages will be injected here during Phase 2 -->
-        <!-- Below is a static preview of how the receipt card will render when fetched: -->
-        <div class="receipt-card" style="display: none;">
-          <div class="receipt-header">
-            <h3 style="font-size: 1.15rem; margin-bottom: 0; color: #38bdf8;">Booking Receipt</h3>
-            <span style="font-size: 0.75rem; font-weight: bold; background-color: #38bdf8; color: #1e293b; padding: 0.25rem 0.5rem; border-radius: 4px;">ACTIVE</span>
-          </div>
-          <div class="receipt-body">
-            <div class="receipt-row">
-              <div class="receipt-label">Booking ID:</div>
-              <div class="receipt-value">101</div>
-            </div>
-            <div class="receipt-row">
-              <div class="receipt-label">Customer Name:</div>
-              <div class="receipt-value">Harmeet</div>
-            </div>
-            <div class="receipt-row">
-              <div class="receipt-label">Movie Title:</div>
-              <div class="receipt-value">Avengers</div>
-            </div>
-            <div class="receipt-row">
-              <div class="receipt-label">Seat Number:</div>
-              <div class="receipt-value"><span class="table-badge">A5</span></div>
-            </div>
-            <div class="receipt-row">
-              <div class="receipt-label">Show Time:</div>
-              <div class="receipt-value">6 PM</div>
-            </div>
-            <div class="receipt-row">
-              <div class="receipt-label">Ticket Price:</div>
-              <div class="receipt-value">₹350.00</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Search Results Container -->
+      <div id="searchResult"></div>
 
     </div>
   </main>
@@ -84,6 +49,69 @@
   <footer>
     <p>&copy; 2026 CineFile. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Done by Vignesh: Event listener on Search button to fetch booking details by ID and display the receipt card.
+    document.getElementById("searchBtn").addEventListener("click", function() {
+      const searchId = document.getElementById("searchId").value.trim();
+      const resultDiv = document.getElementById("searchResult");
+      resultDiv.innerHTML = "";
+
+      if (searchId === "") {
+        resultDiv.innerHTML = '<div class="alert alert-danger">Please enter a Booking ID first.</div>';
+        return;
+      }
+
+      fetch("/searchBooking/" + searchId)
+        .then(res => {
+          if (!res.ok) {
+            return res.json().then(err => {
+              throw new Error(err.message || "Booking not found");
+            });
+          }
+          return res.json();
+        })
+        .then(booking => {
+          resultDiv.innerHTML = `
+            <div class="receipt-card">
+              <div class="receipt-header">
+                <h3 style="font-size: 1.15rem; margin-bottom: 0; color: #38bdf8;">Booking Receipt</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; background-color: #38bdf8; color: #1e293b; padding: 0.25rem 0.5rem; border-radius: 4px;">ACTIVE</span>
+              </div>
+              <div class="receipt-body">
+                <div class="receipt-row">
+                  <div class="receipt-label">Booking ID:</div>
+                  <div class="receipt-value">${booking.bookingId}</div>
+                </div>
+                <div class="receipt-row">
+                  <div class="receipt-label">Customer Name:</div>
+                  <div class="receipt-value">${booking.customerName}</div>
+                </div>
+                <div class="receipt-row">
+                  <div class="receipt-label">Movie Title:</div>
+                  <div class="receipt-value">${booking.movieName}</div>
+                </div>
+                <div class="receipt-row">
+                  <div class="receipt-label">Seat Number:</div>
+                  <div class="receipt-value"><span class="table-badge">${booking.seatNo}</span></div>
+                </div>
+                <div class="receipt-row">
+                  <div class="receipt-label">Show Time:</div>
+                  <div class="receipt-value">${booking.showTime}</div>
+                </div>
+                <div class="receipt-row">
+                  <div class="receipt-label">Ticket Price:</div>
+                  <div class="receipt-value">₹${booking.ticketPrice}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        })
+        .catch(err => {
+          resultDiv.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
+        });
+    });
+  </script>
 
 </body>
 </html>

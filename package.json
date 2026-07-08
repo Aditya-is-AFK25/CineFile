@@ -1,0 +1,12 @@
+{
+  "name": "movie-ticket-booking-system-phase2",
+  "version": "1.0.0",
+  "description": "CineFile movie booking backend - Phase 2 (In-memory storage)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}
