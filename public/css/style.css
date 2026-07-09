@@ -1,9 +1,11 @@
 /* ========================================================================
    CINEFILE - MOVIE TICKET BOOKING SYSTEM PREMIUM DESIGN SYSTEM
-   Luxury Alabaster Ivory & Brushed Champagne Gold UI Theme
+   Dynamic Theme Engine: Light Alabaster Ivory & Dark Midnight Sapphire
+   With Brushed Gold & Champagne Metallic Accents
    ======================================================================== */
 
 :root {
+  /* LIGHT THEME (Default) */
   --bg-dark: #fbf9f4;
   --bg-card: rgba(255, 255, 255, 0.75);
   --border-glow: rgba(168, 136, 92, 0.15);
@@ -15,6 +17,59 @@
   --text-muted: #969087;
   --success: #5d7c67;
   --danger: #b05f5f;
+
+  /* Theme-specific tokens */
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(181, 150, 109, 0.08) 0%, transparent 45%),
+                 radial-gradient(circle at 90% 80%, rgba(156, 122, 77, 0.06) 0%, transparent 45%),
+                 linear-gradient(135deg, #fbf9f4 0%, #f3efe6 100%);
+  --grid-color: rgba(181, 150, 109, 0.035);
+  --box-shadow: 0 8px 32px 0 rgba(168, 136, 92, 0.06);
+  --form-bg: rgba(255, 255, 255, 0.9);
+  --form-border: 1.5px solid rgba(168, 136, 92, 0.18);
+  --btn-text: #ffffff;
+  --th-bg: rgba(243, 234, 218, 0.65);
+  --tr-hover: rgba(168, 136, 92, 0.025);
+  --alert-success-bg: rgba(93, 124, 103, 0.08);
+  --alert-success-text: #3b5743;
+  --alert-success-border: rgba(93, 124, 103, 0.2);
+  --alert-danger-bg: rgba(176, 95, 95, 0.08);
+  --alert-danger-text: #8c3f3f;
+  --alert-danger-border: rgba(176, 95, 95, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* PREMIUM DARK THEME */
+    --bg-dark: #0f121a; /* Deep midnight blue, not flat black */
+    --bg-card: rgba(25, 30, 41, 0.65);
+    --border-glow: rgba(197, 168, 128, 0.18);
+    --gold-primary: #d4af37; /* Metallic gold */
+    --gold-accent: #c5a880;
+    --gold-light: #e5cbb2;
+    --text-primary: #fcfbf9;
+    --text-secondary: #b5b3ae;
+    --text-muted: #7a7873;
+    --success: #a2b9a7;
+    --danger: #d68a8a;
+
+    /* Theme-specific tokens */
+    --bg-gradient: radial-gradient(circle at 10% 20%, rgba(197, 168, 128, 0.04) 0%, transparent 45%),
+                   radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 45%),
+                   linear-gradient(135deg, #0a0d14 0%, #151922 100%);
+    --grid-color: rgba(197, 168, 128, 0.03);
+    --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    --form-bg: rgba(10, 13, 20, 0.7);
+    --form-border: 1.5px solid rgba(255, 255, 255, 0.08);
+    --btn-text: #0f121a;
+    --th-bg: rgba(10, 10, 10, 0.75);
+    --tr-hover: rgba(255, 255, 255, 0.015);
+    --alert-success-bg: rgba(162, 185, 167, 0.08);
+    --alert-success-text: #c9dfcf;
+    --alert-success-border: rgba(162, 185, 167, 0.2);
+    --alert-danger-bg: rgba(214, 138, 138, 0.08);
+    --alert-danger-text: #f7d4d4;
+    --alert-danger-border: rgba(214, 138, 138, 0.2);
+  }
 }
 
 /* Base reset and fonts */
@@ -27,10 +82,7 @@
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-dark);
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(181, 150, 109, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 90% 80%, rgba(156, 122, 77, 0.06) 0%, transparent 45%),
-    linear-gradient(135deg, #fbf9f4 0%, #f3efe6 100%);
+  background-image: var(--bg-gradient);
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
@@ -46,8 +98,8 @@ body::before {
   width: 100vw;
   height: 100vh;
   background-image: 
-    linear-gradient(rgba(181, 150, 109, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(181, 150, 109, 0.035) 1px, transparent 1px);
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 35px 35px;
   pointer-events: none;
   z-index: -1;
@@ -62,15 +114,15 @@ h1, h2, h3, h4 {
 
 /* Header & Navigation */
 header {
-  background: rgba(251, 249, 244, 0.85);
+  background: rgba(10, 13, 20, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(168, 136, 92, 0.12);
+  border-bottom: 1px solid var(--border-glow);
   position: sticky;
   top: 0;
   z-index: 100;
   padding: 1.2rem 0;
-  box-shadow: 0 4px 30px rgba(168, 136, 92, 0.06);
+  box-shadow: var(--box-shadow);
 }
 
 .nav-container {
@@ -171,12 +223,12 @@ nav a.active {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 136, 92, 0.12);
+  border: 1px solid var(--border-glow);
   border-radius: 16px;
   padding: 4rem 2rem;
   text-align: center;
   margin-bottom: 3.5rem;
-  box-shadow: 0 8px 32px 0 rgba(168, 136, 92, 0.06);
+  box-shadow: var(--box-shadow);
   position: relative;
   overflow: hidden;
 }
@@ -220,17 +272,17 @@ nav a.active {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 136, 92, 0.1);
+  border: 1px solid var(--border-glow);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(168, 136, 92, 0.05);
+  box-shadow: var(--box-shadow);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: rgba(168, 136, 92, 0.35);
-  box-shadow: 0 8px 30px rgba(168, 136, 92, 0.12);
+  border-color: var(--gold-accent);
+  box-shadow: var(--box-shadow);
 }
 
 .card h3 {
@@ -275,7 +327,7 @@ nav a.active {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 136, 92, 0.1);
+  border: 1px solid var(--border-glow);
   border-radius: 12px;
   padding: 1.25rem;
   display: flex;
@@ -285,8 +337,8 @@ nav a.active {
 
 .movie-showcase-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(168, 136, 92, 0.35);
-  box-shadow: 0 12px 40px rgba(168, 136, 92, 0.12);
+  border-color: var(--gold-accent);
+  box-shadow: var(--box-shadow);
 }
 
 .movie-showcase-card img {
@@ -314,7 +366,7 @@ nav a.active {
 .movie-tag-badge {
   display: inline-block;
   align-self: flex-start;
-  background: rgba(168, 136, 92, 0.1);
+  background: rgba(197, 168, 128, 0.1);
   color: var(--gold-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
@@ -330,12 +382,12 @@ form {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(168, 136, 92, 0.12);
+  border: var(--form-border);
   padding: 2.5rem;
   max-width: 550px;
   margin: 0 auto;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(168, 136, 92, 0.08);
+  box-shadow: var(--box-shadow);
 }
 
 .form-group {
@@ -357,8 +409,8 @@ form {
 .form-group select {
   width: 100%;
   padding: 0.9rem 1.1rem;
-  border: 1.5px solid rgba(168, 136, 92, 0.18);
-  background-color: rgba(255, 255, 255, 0.9);
+  border: var(--form-border);
+  background-color: var(--form-bg);
   color: var(--text-primary);
   font-size: 0.95rem;
   border-radius: 8px;
@@ -396,7 +448,7 @@ button, .btn {
   justify-content: center;
   text-decoration: none;
   background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-primary) 100%);
-  color: #ffffff;
+  color: var(--btn-text);
   border: none;
   padding: 0.9rem 1.8rem;
   font-size: 0.95rem;
@@ -420,7 +472,7 @@ button:active, .btn:active {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-accent) 100%);
-  color: #ffffff;
+  color: var(--btn-text);
 }
 
 .btn-primary:hover {
@@ -430,7 +482,7 @@ button:active, .btn:active {
 .btn-outline {
   background: transparent;
   color: var(--text-primary);
-  border: 1.5px solid rgba(168, 136, 92, 0.3);
+  border: 1.5px solid var(--border-glow);
   margin-left: 0.75rem;
 }
 
@@ -450,25 +502,25 @@ table {
   backdrop-filter: blur(12px);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(168, 136, 92, 0.12);
+  border: 1px solid var(--border-glow);
 }
 
 th, td {
   padding: 1.1rem 1.5rem;
   text-align: left;
   font-size: 0.95rem;
-  border-bottom: 1px solid rgba(168, 136, 92, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 th {
-  background-color: rgba(243, 234, 218, 0.65);
+  background-color: var(--th-bg);
   color: var(--text-primary);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.8rem;
   font-family: 'JetBrains Mono', monospace;
-  border-bottom: 1px solid rgba(168, 136, 92, 0.15);
+  border-bottom: 1px solid var(--border-glow);
 }
 
 tr:last-child td {
@@ -476,7 +528,7 @@ tr:last-child td {
 }
 
 tr:hover td {
-  background-color: rgba(168, 136, 92, 0.02);
+  background-color: var(--tr-hover);
 }
 
 .table-badge {
@@ -503,27 +555,27 @@ tr:hover td {
 }
 
 .alert-success {
-  background-color: rgba(93, 124, 103, 0.08);
-  color: #3b5743;
-  border-color: rgba(93, 124, 103, 0.2);
+  background-color: var(--alert-success-bg);
+  color: var(--alert-success-text);
+  border-color: var(--alert-success-border);
 }
 
 .alert-danger {
-  background-color: rgba(176, 95, 95, 0.08);
-  color: #8c3f3f;
-  border-color: rgba(176, 95, 95, 0.2);
+  background-color: var(--alert-danger-bg);
+  color: var(--alert-danger-text);
+  border-color: var(--alert-danger-border);
 }
 
 /* Receipt Card (Search result ticket) */
 .receipt-card {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(168, 136, 92, 0.15);
+  border: 1px solid var(--border-glow);
   padding: 2.2rem;
   max-width: 450px;
   margin: 2.5rem auto;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(168, 136, 92, 0.08);
+  box-shadow: var(--box-shadow);
   position: relative;
 }
 
@@ -538,7 +590,7 @@ tr:hover td {
 }
 
 .receipt-header {
-  border-bottom: 1.5px dashed rgba(168, 136, 92, 0.15);
+  border-bottom: 1.5px dashed rgba(255, 255, 255, 0.08);
   padding-bottom: 1.25rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -593,6 +645,6 @@ footer {
   color: var(--text-muted);
   margin-top: 5rem;
   font-size: 0.8rem;
-  border-top: 1px solid rgba(168, 136, 92, 0.1);
+  border-top: 1px solid var(--border-glow);
   font-family: 'JetBrains Mono', monospace;
 }
