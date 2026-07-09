@@ -1,0 +1,130 @@
+<!-- Aditya: Phase 1 (UI) and Phase 2 (fetch connection) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFile — Book Ticket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Cine<span>File</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="addBooking.html" class="active">Book Ticket</a>
+        <a href="viewBookings.html">View Bookings</a>
+        <a href="searchBooking.html">Search Booking</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Book a Movie Ticket</h2>
+    
+    <!-- Custom Styled Form (Static Phase 1) -->
+    <form id="bookingForm">
+      
+      <!-- Customer Name -->
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" name="customerName" placeholder="e.g. Harmeet" required />
+      </div>
+
+      <!-- Movie Name -->
+      <div class="form-group">
+        <label for="movieName">Movie Name</label>
+        <input type="text" id="movieName" name="movieName" placeholder="e.g. Avengers" required />
+      </div>
+
+      <!-- Show Time -->
+      <div class="form-group">
+        <label for="showTime">Show Time</label>
+        <input type="text" id="showTime" name="showTime" placeholder="e.g. 6 PM" required />
+      </div>
+
+      <!-- Seat Number -->
+      <div class="form-group">
+        <label for="seatNo">Seat Number</label>
+        <input type="text" id="seatNo" name="seatNo" placeholder="e.g. A5" required />
+        <div class="form-text">One letter followed by digits (e.g., A5, B12).</div>
+      </div>
+
+      <!-- Ticket Price -->
+      <div class="form-group">
+        <label for="ticketPrice">Ticket Price (INR)</label>
+        <input type="number" id="ticketPrice" name="ticketPrice" min="0" placeholder="e.g. 350" required />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Book Ticket</button>
+      
+    </form>
+
+    <!-- Empty Message Display Area -->
+    <div id="responseMessage" class="alert alert-success" style="display: none; max-width: 500px; margin: 1.5rem auto;"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 CineFile. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const responseDiv = document.getElementById("responseMessage");
+      responseDiv.style.display = "none";
+      responseDiv.className = "alert";
+
+      const customerName = document.getElementById("customerName").value;
+      const movieName = document.getElementById("movieName").value;
+      const showTime = document.getElementById("showTime").value;
+      const seatNo = document.getElementById("seatNo").value;
+      const ticketPrice = document.getElementById("ticketPrice").value;
+
+      fetch("/addBooking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          customerName: customerName,
+          movieName: movieName,
+          showTime: showTime,
+          seatNo: seatNo,
+          ticketPrice: ticketPrice
+        })
+      })
+      .then(res => {
+        return res.json().then(data => {
+          responseDiv.style.display = "block";
+          if (res.ok) {
+            responseDiv.className = "alert alert-success";
+            responseDiv.innerText = "Ticket booked successfully! Booking ID: " + data.bookingId;
+            document.getElementById("bookingForm").reset();
+          } else {
+            responseDiv.className = "alert alert-danger";
+            responseDiv.innerText = "Error: " + data.message;
+          }
+        });
+      })
+      .catch(err => {
+        responseDiv.style.display = "block";
+        responseDiv.className = "alert alert-danger";
+        responseDiv.innerText = "Failed to connect to server.";
+      });
+    });
+  </script>
+
+</body>
+</html>

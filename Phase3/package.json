@@ -1,0 +1,13 @@
+{
+  "name": "movie-ticket-booking-system",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Movie Ticket Booking System built in phases (UI, backend logic, file/database persistence).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2",
+    "mongoose": "^9.7.4"
+  }
+}

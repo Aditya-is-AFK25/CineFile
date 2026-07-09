@@ -1,0 +1,26 @@
+[
+  {
+    "bookingId": 101,
+    "customerName": "Harmeet",
+    "movieName": "Avengers",
+    "showTime": "6 PM",
+    "seatNo": "A5",
+    "ticketPrice": 350
+  },
+  {
+    "bookingId": 102,
+    "customerName": "harmeet ",
+    "movieName": "avengers ",
+    "showTime": "8 pm",
+    "seatNo": "A5",
+    "ticketPrice": 230
+  },
+  {
+    "bookingId": 103,
+    "customerName": "Krish",
+    "movieName": "Avengers",
+    "showTime": "6 pm",
+    "seatNo": "A5",
+    "ticketPrice": 230
+  }
+]
