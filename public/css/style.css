@@ -1,74 +1,74 @@
 /* ========================================================================
    CINEFILE - MOVIE TICKET BOOKING SYSTEM PREMIUM DESIGN SYSTEM
-   Dynamic Theme Engine: Light Alabaster Ivory & Dark Midnight Sapphire
-   With Brushed Gold & Champagne Metallic Accents
+   Linear-Inspired Slate, Indigo & Violet UI Theme
+   Dynamic prefers-color-scheme (Light Slate / Deep Indigo Obsidian)
    ======================================================================== */
 
 :root {
-  /* LIGHT THEME (Nordic Sage & Warm Alabaster) */
-  --bg-dark: #f5f2eb; /* Warm soothing alabaster sand */
-  --bg-card: rgba(255, 255, 255, 0.7); /* Translucent frost glass */
-  --border-glow: rgba(107, 138, 122, 0.15); /* Soothing Sage border */
-  --gold-primary: #526b5c; /* Soft dark sage green */
-  --gold-accent: #6b8a7a; /* Muted eucalyptus */
-  --gold-light: #d1c9bd; /* Soothing sand */
-  --text-primary: #212c26; /* Soothing deep pine */
-  --text-secondary: #535e58; /* Calm slate green */
-  --text-muted: #8b9790; /* Soft moss gray */
-  --success: #60856c;
-  --danger: #b27373;
+  /* LIGHT MODE (Slate & Indigo) */
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --border-glow: rgba(99, 102, 241, 0.12);
+  --gold-primary: #4f46e5;
+  --gold-accent: #6366f1;
+  --gold-light: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --success: #10b981;
+  --danger: #ef4444;
 
   /* Theme-specific tokens */
-  --bg-gradient: radial-gradient(circle at 15% 25%, rgba(107, 138, 122, 0.08) 0%, transparent 45%),
-                 radial-gradient(circle at 85% 75%, rgba(82, 107, 92, 0.06) 0%, transparent 45%),
-                 linear-gradient(135deg, #f5f2eb 0%, #ebe6dc 100%);
-  --grid-color: rgba(107, 138, 122, 0.035);
-  --box-shadow: 0 8px 32px 0 rgba(107, 138, 122, 0.05);
-  --form-bg: rgba(255, 255, 255, 0.85);
-  --form-border: 1.5px solid rgba(107, 138, 122, 0.18);
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 45%),
+                 radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 45%),
+                 linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --grid-color: rgba(99, 102, 241, 0.025);
+  --box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.05);
+  --form-bg: rgba(255, 255, 255, 0.9);
+  --form-border: 1.5px solid rgba(99, 102, 241, 0.15);
   --btn-text: #ffffff;
-  --th-bg: rgba(230, 225, 215, 0.7);
-  --tr-hover: rgba(107, 138, 122, 0.025);
-  --alert-success-bg: rgba(96, 133, 108, 0.08);
-  --alert-success-text: #2f4c39;
-  --alert-success-border: rgba(96, 133, 108, 0.2);
-  --alert-danger-bg: rgba(178, 115, 115, 0.08);
-  --alert-danger-text: #7c3f3f;
-  --alert-danger-border: rgba(178, 115, 115, 0.2);
+  --th-bg: rgba(226, 232, 240, 0.7);
+  --tr-hover: rgba(99, 102, 241, 0.02);
+  --alert-success-bg: rgba(16, 185, 129, 0.08);
+  --alert-success-text: #065f46;
+  --alert-success-border: rgba(16, 185, 129, 0.2);
+  --alert-danger-bg: rgba(239, 68, 68, 0.08);
+  --alert-danger-text: #991b1b;
+  --alert-danger-border: rgba(239, 68, 68, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* PREMIUM SOOTHING DARK THEME (Eucalyptus Spruce & Muted Moss) */
-    --bg-dark: #161e1a; /* Soothing deep forest pine, very dark green-gray, extremely gentle on eyes */
-    --bg-card: rgba(27, 36, 31, 0.65);
-    --border-glow: rgba(120, 152, 135, 0.18);
-    --gold-primary: #8cb09d; /* Soft light sage green */
-    --gold-accent: #789887; /* eucalyptus accent */
-    --gold-light: #c5d3cb;
-    --text-primary: #f2f5f3;
-    --text-secondary: #a6b5ad;
-    --text-muted: #728178;
-    --success: #9fcba5;
-    --danger: #d7a2a2;
+    /* PREMIUM DARK MODE (Linear Deep Space Obsidian) */
+    --bg-dark: #030712; 
+    --bg-card: rgba(17, 24, 39, 0.65);
+    --border-glow: rgba(99, 102, 241, 0.18);
+    --gold-primary: #818cf8; 
+    --gold-accent: #a78bfa; 
+    --gold-light: #c7d2fe;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --success: #34d399;
+    --danger: #f87171;
 
     /* Theme-specific tokens */
-    --bg-gradient: radial-gradient(circle at 15% 25%, rgba(140, 176, 157, 0.04) 0%, transparent 45%),
-                   radial-gradient(circle at 85% 75%, rgba(120, 152, 135, 0.03) 0%, transparent 45%),
-                   linear-gradient(135deg, #111815 0%, #1c2621 100%);
-    --grid-color: rgba(140, 176, 157, 0.025);
+    --bg-gradient: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 45%),
+                   radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 45%),
+                   linear-gradient(135deg, #030712 0%, #0b0f19 100%);
+    --grid-color: rgba(99, 102, 241, 0.025);
     --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
-    --form-bg: rgba(20, 27, 24, 0.7);
+    --form-bg: rgba(10, 13, 20, 0.7);
     --form-border: 1.5px solid rgba(255, 255, 255, 0.07);
-    --btn-text: #161e1a;
-    --th-bg: rgba(18, 25, 21, 0.85);
+    --btn-text: #030712;
+    --th-bg: rgba(18, 24, 38, 0.85);
     --tr-hover: rgba(255, 255, 255, 0.015);
-    --alert-success-bg: rgba(159, 203, 165, 0.08);
-    --alert-success-text: #caeccf;
-    --alert-success-border: rgba(159, 203, 165, 0.2);
-    --alert-danger-bg: rgba(215, 162, 162, 0.08);
-    --alert-danger-text: #fae2e2;
-    --alert-danger-border: rgba(215, 162, 162, 0.2);
+    --alert-success-bg: rgba(52, 211, 153, 0.08);
+    --alert-success-text: #a7f3d0;
+    --alert-success-border: rgba(52, 211, 153, 0.2);
+    --alert-danger-bg: rgba(248, 113, 113, 0.08);
+    --alert-danger-text: #fca5a5;
+    --alert-danger-border: rgba(248, 113, 113, 0.2);
   }
 }
 
@@ -366,7 +366,7 @@ nav a.active {
 .movie-tag-badge {
   display: inline-block;
   align-self: flex-start;
-  background: rgba(197, 168, 128, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   color: var(--gold-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
@@ -422,7 +422,7 @@ form {
 .form-group input:focus,
 .form-group select:focus {
   border-color: var(--gold-primary);
-  box-shadow: 0 0 12px rgba(156, 122, 77, 0.2);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
 }
 
 .input-group {
@@ -463,7 +463,7 @@ button, .btn {
 
 button:hover, .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(156, 122, 77, 0.25);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.25);
 }
 
 button:active, .btn:active {
@@ -476,7 +476,7 @@ button:active, .btn:active {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 5px 15px rgba(181, 150, 109, 0.3);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
 }
 
 .btn-outline {
@@ -487,7 +487,7 @@ button:active, .btn:active {
 }
 
 .btn-outline:hover {
-  background: rgba(168, 136, 92, 0.06);
+  background: rgba(99, 102, 241, 0.06);
   border-color: var(--gold-primary);
   box-shadow: none;
 }
@@ -532,7 +532,7 @@ tr:hover td {
 }
 
 .table-badge {
-  background: rgba(168, 136, 92, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   color: var(--gold-primary);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
@@ -620,7 +620,7 @@ tr:hover td {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Simulated Gold Barcode for luxury ticket aesthetic */
+/* Simulated Indigo Barcode for luxury ticket aesthetic */
 .receipt-card::after {
   content: "";
   display: block;
